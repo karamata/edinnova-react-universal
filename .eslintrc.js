@@ -40,7 +40,7 @@ module.exports = {
     // Use console.error, console.warn and console.info instead
     // https://eslint.org/docs/rules/no-console
     'no-console': [
-      'error',
+      'warn',
       {
         allow: ['warn', 'error', 'info'],
       },

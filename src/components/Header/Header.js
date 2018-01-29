@@ -1,41 +1,47 @@
-/**
- * React Starter Kit (https://www.reactstarterkit.com/)
- *
- * Copyright © 2014-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
+import React, {Component} from 'react';
+import {
+  Nav,
+  NavItem,
+  NavbarToggler,
+  NavbarBrand,
+} from 'reactstrap';
 
-import React from 'react';
-import './Header.scss';
-import Link from '../Link';
-import Navigation from '../Navigation';
-import logoUrl from './logo-small.png';
-import logoUrl2x from './logo-small@2x.png';
+class Header extends Component {
 
-class Header extends React.Component {
+  sidebarToggle(e) {
+    e.preventDefault();
+    document.body.classList.toggle('sidebar-hidden');
+  }
+
+  sidebarMinimize(e) {
+    e.preventDefault();
+    document.body.classList.toggle('sidebar-minimized');
+  }
+
+  mobileSidebarToggle(e) {
+    e.preventDefault();
+    document.body.classList.toggle('sidebar-mobile-show');
+  }
+
+  asideToggle(e) {
+    e.preventDefault();
+    document.body.classList.toggle('aside-menu-hidden');
+  }
+
   render() {
     return (
-      <div className="root">
-        <div className="container">
-          <Navigation />
-          <Link to="/">
-            <img
-              src={logoUrl}
-              srcSet={`${logoUrl2x} 2x`}
-              width="38"
-              height="38"
-              alt="React"
-            />
-            <span className="brandTxt">Your Company</span>
-          </Link>
-          <div className="banner">
-            <h1 className="bannerTitle">React</h1>
-            <p className="bannerDesc">Complex web apps made easy</p>
-          </div>
-        </div>
-      </div>
+      <header className="app-header navbar">
+        <NavbarToggler className="d-lg-none" onClick={this.mobileSidebarToggle}>
+          <span className="navbar-toggler-icon"></span>
+        </NavbarToggler>
+        <NavbarBrand href="#"></NavbarBrand>
+        <NavbarToggler className="d-md-down-none mr-auto" onClick={this.sidebarToggle}>
+          <span className="navbar-toggler-icon"></span>
+        </NavbarToggler>
+        <NavbarToggler className="d-md-down-none" onClick={this.asideToggle}>
+          <span className="navbar-toggler-icon"></span>
+        </NavbarToggler>
+      </header>
     );
   }
 }
