@@ -1,35 +1,32 @@
-/* eslint-disable */
-
-import React from 'react';
+import React, { Component } from 'react';
 import { NavbarToggler, NavbarBrand } from 'reactstrap';
 
-import Link from '../Link';
+class Header extends Component {
+  constructor(props) {
+    super(props);
 
-class Header extends React.Component {
-  /* eslint-disable class-methods-use-this */
+    this.sidebarToggle = this.sidebarToggle.bind(this);
+    this.sidebarMinimize = this.sidebarMinimize.bind(this);
+    this.mobileSidebarToggle = this.mobileSidebarToggle.bind(this);
+    this.asideToggle = this.asideToggle.bind(this);
+  }
+
   sidebarToggle(e) {
-    console.log('==============sidebarToggle=================', e);
     e.preventDefault();
     document.body.classList.toggle('sidebar-hidden');
   }
 
-  /* eslint-disable class-methods-use-this */
   sidebarMinimize(e) {
-    console.log('==============sidebarMinimize=================', e);
     e.preventDefault();
     document.body.classList.toggle('sidebar-minimized');
   }
 
-  /* eslint-disable class-methods-use-this */
   mobileSidebarToggle(e) {
-    console.log('==============mobileSidebarToggle=================', e);
     e.preventDefault();
     document.body.classList.toggle('sidebar-mobile-show');
   }
 
-  /* eslint-disable class-methods-use-this */
   asideToggle(e) {
-    console.log('==============asideToggle=================', e);
     e.preventDefault();
     document.body.classList.toggle('aside-menu-hidden');
   }
@@ -37,36 +34,17 @@ class Header extends React.Component {
   render() {
     return (
       <header className="app-header navbar">
-        <Link
-          onClick={() => {
-            console.log('==========hello world============');
-          }}
-        >
-          Click Test
-        </Link>
-        <NavbarToggler
-          className="d-lg-none"
-          onClick={() => {
-            console.log('======================');
-          }}
-        >
+        <NavbarToggler className="d-lg-none" onClick={this.mobileSidebarToggle}>
           <span className="navbar-toggler-icon" />
         </NavbarToggler>
         <NavbarBrand href="#" />
         <NavbarToggler
           className="d-md-down-none mr-auto"
-          onClick={() => {
-            console.log('======================');
-          }}
+          onClick={this.sidebarToggle}
         >
           <span className="navbar-toggler-icon" />
         </NavbarToggler>
-        <NavbarToggler
-          className="d-md-down-none"
-          onClick={() => {
-            console.log('======================');
-          }}
-        >
+        <NavbarToggler className="d-md-down-none" onClick={this.asideToggle}>
           <span className="navbar-toggler-icon" />
         </NavbarToggler>
       </header>

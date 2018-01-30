@@ -31,7 +31,7 @@ class Html extends React.Component {
           ))}
           <link rel="apple-touch-icon" href="apple-touch-icon.png" />
         </head>
-        <body>
+        <body className="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
           <div id="app" dangerouslySetInnerHTML={{ __html: children }} />
           <script
             dangerouslySetInnerHTML={{ __html: `window.App=${serialize(app)}` }}

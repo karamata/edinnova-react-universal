@@ -8,11 +8,11 @@ class CategoryForm extends React.Component {
 
   render() {
     return (
-      <div className={s.root}>
-        <div className={s.container} />
+      <div className="category-container">
+        <div className="container" />
       </div>
     );
   }
 }
 
-export default withStyles(s)(CategoryForm);
+export default CategoryForm;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import s from './ErrorPage.scss';
+import './ErrorPage.scss';
 
 class ErrorPage extends React.Component {
   static propTypes = {
@@ -36,4 +36,4 @@ class ErrorPage extends React.Component {
 }
 
 export { ErrorPage as ErrorPageWithoutStyle };
-export default withStyles(s)(ErrorPage);
+export default ErrorPage;
